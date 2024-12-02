@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Changing Button</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+        button {
+            padding: 20px 40px;
+            font-size: 24px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+        button:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <button id="colorButton">اضغط هنا</button>
+
+    <script>
+        const button = document.getElementById("colorButton");
+
+        button.addEventListener("click", () => {
+            // Generate a random color
+            const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+            // Change the button's background color
+            button.style.backgroundColor = randomColor;
+            // Change the button's text color for contrast
+            button.style.color = randomColor === "#000000" ? "#FFFFFF" : "#000000";
+        });
+    </script>
+</body>
+</html>
